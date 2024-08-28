@@ -1,3 +1,5 @@
+const { link } = require("fs");
+
 class node{
     constructor(value){
         this.value = value ;
@@ -106,6 +108,34 @@ function merge(head1,head2){
     
 }
 
+function mergeink(h1,h2){
+   let  l1=h1
+   let  l2=h2
+
+   let link3=new linkedList()
+
+   while(l1||l2){
+    if(!l1){
+        link3.insert(l2.value)
+        l2=l2.next
+    }else if(!l2){
+        link3.insert(l1.value)
+        l1=l1.next
+    }else{
+        if(l1.value<l2.value){
+            link3.insert(l1.value)
+            l1=l1.next
+        }else{
+            link3.insert(l2.value)
+            l2=l2.next
+        }
+    }
+   }
+   link3.display()
+
+    
+}
+
 function unCommen(head1,head2){
     l1=head1
     l2=head2
@@ -141,13 +171,14 @@ lt.insert(3)
 
 const lt1 = new linkedList()
 
-lt1.insert(12)
 lt1.insert(2)
 lt1.insert(3)
 lt1.insert(4)
+lt1.insert(12)
 // lt1.reverce()
 // lt1.display()
 
 // merge(lt1,lt)
 
-console.log( unCommen( lt1.head,lt.head));
+mergeink(lt1.head,lt.head)
+// console.log( unCommen( lt1.head,lt.head));

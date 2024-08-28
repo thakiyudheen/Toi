@@ -44,3 +44,14 @@ function sumOdd(arr,i=arr.length-1){
 console.log('this is array',sumOdd([1,2,3,4,5]));
 
 
+function reverce(arr,i=0){
+  if(i>arr.length-1-i){
+    return arr
+  }
+  [arr[i],arr[arr.length-i-1]]=[arr[arr.length-i-1],arr[i]]
+  return reverce(arr,i+1)
+
+}
+
+var arr=[1,2,3,4,5]
+console.log(reverce(arr));
